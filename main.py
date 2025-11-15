@@ -1,5 +1,3 @@
-print("Hello World")
-
 print("new update")
 
 def addition(a, b):
