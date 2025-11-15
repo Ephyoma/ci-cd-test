@@ -6,13 +6,22 @@ on:
 
 jobs:
   Test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Run Test Stage
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Run Python Script
         run: |
-          echo "🧪 Running tests... Triggered by a ${{ github.event_name }} event."
+          echo "🧪 Running tests on ${{ matrix.os }}"
           python main.py

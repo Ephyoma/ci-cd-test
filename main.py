@@ -1,3 +1,5 @@
+print("Hello World")
+print("new update")
 print("new update")
 
 def addition(a, b):
