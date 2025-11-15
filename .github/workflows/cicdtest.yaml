@@ -1,0 +1,18 @@
+name: CI Pipeline Demo
+
+on:
+  push:
+    branches: [ main, dev ]
+
+jobs:
+  Test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Run Test Stage
+        run: |
+          echo "🧪 Running tests... Triggered by a ${{ github.event_name }} event."
+          python main.py
